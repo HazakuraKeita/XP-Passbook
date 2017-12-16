@@ -20,12 +20,13 @@ namespace XPPassbook.Models
 
         public SettingsXml()
         {
-            var programDataFullName = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "XpJp/XP-Passbook/";
+            var programDataFullName = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "/XpJp/XP-Passbook/";
             if (!Directory.Exists(programDataFullName))
             {
                 Directory.CreateDirectory(programDataFullName);
             }
 
+            IsSuccess = true;
             fileFullName = programDataFullName + "Settings.xml";
             Open();
         }
