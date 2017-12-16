@@ -9,10 +9,10 @@ namespace XPPassbook
 {
     public class DelegateCommand : ICommand
     {
-        Action action;
+        Action<object> action;
         public event EventHandler CanExecuteChanged;
 
-        public DelegateCommand(Action action)
+        public DelegateCommand(Action<object> action)
         {
             this.action = action;
         }
@@ -24,7 +24,7 @@ namespace XPPassbook
 
         public void Execute(object parameter)
         {
-            action?.Invoke();
+            action?.Invoke(parameter);
         }
     }
 }

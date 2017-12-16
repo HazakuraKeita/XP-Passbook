@@ -122,5 +122,6 @@
                 </Button>
             </StackPanel>
         </Grid>
+        <TextBlock Text="Now Loading..." Visibility="{Binding LoadingMessageVisibility}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10"/>
     </Grid>
 </Window>

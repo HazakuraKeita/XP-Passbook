@@ -99,7 +99,7 @@ namespace XPPassbook.Models
                     Balance = double.Parse(data);
                 }
             }
-            catch(Exception e) { var a = e; }
+            catch { }
         }
     }
 }
