@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XPPassbook"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         WindowStyle="None"
         BorderThickness="0"
@@ -17,6 +18,11 @@
         <WindowChrome CaptionHeight="0"
                       ResizeBorderThickness="0" />
     </WindowChrome.WindowChrome>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Style="{StaticResource IconButton}">
             <Button.Content>
@@ -49,7 +55,8 @@
             </Border>
             <StackPanel Grid.Column="1" Orientation="Vertical">
                 <TextBlock Text="{Binding XPer.Name}" Margin="10,5" Style="{StaticResource PropertyText}"/>
-                <TextBlock Text="{Binding XPer.Address}" TextWrapping="NoWrap" Margin="10,5" Style="{StaticResource PropertyText}"/>
+                <TextBlock Text="{Binding XPer.MaskedAddress}" TextWrapping="NoWrap" Margin="10,5" Style="{StaticResource PropertyText}"/>
+                <TextBlock Text="{Binding XPer.Balance, StringFormat={}{0} XP}" TextWrapping="NoWrap" Margin="10,5" Style="{StaticResource PropertyText}"/>
             </StackPanel>
         </Grid>
         <!--*******************************************************

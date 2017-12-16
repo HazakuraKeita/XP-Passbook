@@ -16,6 +16,7 @@ namespace XPPassbook
     public class ViewModel : INotifyPropertyChanged
     {
         public XPer XPer { get; set; }
+        public ICommand LoadedCommand { get; private set; }
         public ICommand ImageSelectCommand { get; private set; }
         public ICommand SaveCommand { get; private set; }
         public ICommand UpdateCommand { get; private set; }
@@ -28,9 +29,15 @@ namespace XPPassbook
         {
             XPer = new XPer();
 
+            LoadedCommand = new DelegateCommand(async () =>
+            {
+                await XPer.Load();
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
+            });
+
             SaveCommand = new DelegateCommand(() =>
             {
-                XPer.Update();
+                XPer.Save();
                 Update();
             });
 
