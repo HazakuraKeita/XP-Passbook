@@ -54,9 +54,11 @@ namespace XPPassbook.Models
 
         string imageFullName;
         SettingsXml xml;
+        ExperiencePoints xp;
 
         public XPer()
         {
+            xp = new ExperiencePoints();
             xml = new SettingsXml();
 
             if (xml.IsSuccess)
@@ -71,6 +73,7 @@ namespace XPPassbook.Models
         public async Task Load()
         {
             await LoadBalance();
+            await xp.Load();
         }
 
         public void Save()
