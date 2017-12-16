@@ -1,0 +1,81 @@
+﻿<Window x:Class="XPPassbook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XPPassbook"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        BorderThickness="0"
+        Background="#555555"
+        Title="XPPassbook" Height="500" Width="600">
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0"
+                      ResizeBorderThickness="0" />
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Style="{StaticResource IconButton}">
+            <Button.Content>
+                <Image Source="/Assets/Hamburger.png"/>
+            </Button.Content>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimation To="0,0,0,0" Duration="0:0:0.2"
+                                                Storyboard.TargetName="SideMenu"
+                                                Storyboard.TargetProperty="Margin"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <TextBlock Text="XP Passbook" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
+        
+        <!--*******************************************************
+        *
+        * Side menu
+        *
+        ********************************************************-->
+        <Grid Name="SideMenu" Width="250" HorizontalAlignment="Left" Margin="-250,0,0,0">
+            <Border Background="Black" Opacity="0.9"/>
+            <StackPanel Margin="5" Orientation="Vertical">
+                <Button HorizontalAlignment="Left" Margin="5" Style="{StaticResource IconButton}">
+                    <Button.Content>
+                        <Image Source="/Assets/Back.png"/>
+                    </Button.Content>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ThicknessAnimation To="-250,0,0,0" Duration="0:0:0.2"
+                                                Storyboard.TargetName="SideMenu"
+                                                Storyboard.TargetProperty="Margin"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <TextBlock Text="Name" Margin="5,5,5,0"/>
+                <TextBox Text="{Binding Name}" Margin="5,0,5,5"/>
+                <TextBlock Text="Address" Margin="5,5,5,0"/>
+                <TextBox Text="{Binding Address}" Margin="5,0,5,5"/>
+                <TextBlock Text="Investment Amount (JPY)" Margin="5,5,5,0"/>
+                <TextBox Text="{Binding InvestmentAmount}" Margin="5,0,5,5"/>
+                <TextBlock Text="Image" Margin="5,5,5,0"/>
+                <Button Command="{Binding ImageSelectCommand}" Margin="5,0,5,5">
+                    <TextBlock Text="Select" Foreground="#222222"/>
+                </Button>
+                <Button Command="{Binding SaveCommand}" Margin="5,30,5,5">
+                    <TextBlock Text="Save" Foreground="#222222"/>
+                </Button>
+                <Button Command="{Binding ExitCommand}" Margin="5">
+                    <TextBlock Text="Exit" Foreground="#222222"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
