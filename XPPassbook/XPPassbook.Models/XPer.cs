@@ -11,7 +11,10 @@ namespace XPPassbook.Models
     public class XPer
     {
         public int InvestmentAmount { get; set; }
+        public double CurrentAmount { get { return Balance * XP.Jpy; } }
         public double Balance { get; set; }
+        public double Plofit { get { return CurrentAmount - InvestmentAmount; } }
+        public double PlofitPercentage { get { return (Plofit / InvestmentAmount) * 100; } }
         public string MaskedAddress
         {
             get
@@ -32,6 +35,7 @@ namespace XPPassbook.Models
         }
         public string Name { get; set; }
         public string Address { get; set; }
+        public ExperiencePoints XP { get; private set; }
         public BitmapImage IconImage { get; set; }
         public string ImageFullName
         {
@@ -54,11 +58,10 @@ namespace XPPassbook.Models
 
         string imageFullName;
         SettingsXml xml;
-        ExperiencePoints xp;
 
         public XPer()
         {
-            xp = new ExperiencePoints();
+            XP = new ExperiencePoints();
             xml = new SettingsXml();
 
             if (xml.IsSuccess)
@@ -73,7 +76,7 @@ namespace XPPassbook.Models
         public async Task Load()
         {
             await LoadBalance();
-            await xp.Load();
+            await XP.Load();
         }
 
         public void Save()

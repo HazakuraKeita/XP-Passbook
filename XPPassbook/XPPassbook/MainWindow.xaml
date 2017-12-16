@@ -58,6 +58,24 @@
                 <TextBlock Text="{Binding XPer.MaskedAddress}" TextWrapping="NoWrap" Margin="10,5" Style="{StaticResource PropertyText}"/>
                 <TextBlock Text="{Binding XPer.Balance, StringFormat={}{0} XP}" TextWrapping="NoWrap" Margin="10,5" Style="{StaticResource PropertyText}"/>
             </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Vertical">
+                <TextBlock Text="Investment Amount:" Margin="10,5" Style="{StaticResource ItemNameText}"/>
+                <TextBlock Text="Current Amount:" Margin="10,5" Style="{StaticResource ItemNameText}"/>
+                <TextBlock Text="Plofit:" Margin="10,5" Style="{StaticResource ItemNameText}"/>
+                <TextBlock Text="Plofit (%):" Margin="10,5" Style="{StaticResource ItemNameText}"/>
+                <TextBlock Text="XP / JPY:" Margin="10,5" Style="{StaticResource ItemNameText}"/>
+                <TextBlock Text="XP / USD:" Margin="10,5" Style="{StaticResource ItemNameText}"/>
+                <TextBlock Text="XP / BTC:" Margin="10,5" Style="{StaticResource ItemNameText}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+                <TextBlock Text="{Binding XPer.InvestmentAmount, StringFormat={}{0} yen}" Margin="10,5" Style="{StaticResource PropertyText}"/>
+                <TextBlock Text="{Binding XPer.CurrentAmount, StringFormat={}{0} yen}" Margin="10,5" Style="{StaticResource PropertyText}"/>
+                <TextBlock Text="{Binding XPer.Plofit, StringFormat={}{0} yen}" Margin="10,5" Style="{StaticResource PropertyText}"/>
+                <TextBlock Text="{Binding XPer.PlofitPercentage, StringFormat={}{0} %}" Margin="10,5" Style="{StaticResource PropertyText}"/>
+                <TextBlock Text="{Binding XPer.XP.Jpy, StringFormat={}{0} yen}" Margin="10,5" Style="{StaticResource PropertyText}"/>
+                <TextBlock Text="{Binding XPer.XP.Usd, StringFormat={}{0} usd}" Margin="10,5" Style="{StaticResource PropertyText}"/>
+                <TextBlock Text="{Binding XPer.XP.Btc, StringFormat={}{0} btc}" Margin="10,5" Style="{StaticResource PropertyText}"/>
+            </StackPanel>
         </Grid>
         <!--*******************************************************
         *
