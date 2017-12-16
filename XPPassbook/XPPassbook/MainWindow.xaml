@@ -45,11 +45,11 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Border Background="#222222">
-                <Image Source="{Binding IconImage}" Width="200" Height="200"/>
+                <Image Source="{Binding XPer.IconImage}" Width="200" Height="200"/>
             </Border>
             <StackPanel Grid.Column="1" Orientation="Vertical">
-                <TextBlock Text="{Binding Name}" Margin="10,5" Style="{StaticResource PropertyText}"/>
-                <TextBlock Text="{Binding Address}" TextWrapping="NoWrap" Margin="10,5" Style="{StaticResource PropertyText}"/>
+                <TextBlock Text="{Binding XPer.Name}" Margin="10,5" Style="{StaticResource PropertyText}"/>
+                <TextBlock Text="{Binding XPer.Address}" TextWrapping="NoWrap" Margin="10,5" Style="{StaticResource PropertyText}"/>
             </StackPanel>
         </Grid>
         <!--*******************************************************
@@ -58,7 +58,7 @@
         *
         ********************************************************-->
         <Grid Name="SideMenu" Width="250" HorizontalAlignment="Left" Margin="-250,0,0,0">
-            <Border Background="Black" Opacity="0.9"/>
+            <Border Background="Black" Opacity="0.8"/>
             <StackPanel Margin="5" Orientation="Vertical">
                 <Button HorizontalAlignment="Left" Margin="5" Style="{StaticResource IconButton}">
                     <Button.Content>
@@ -77,11 +77,11 @@
                     </Button.Triggers>
                 </Button>
                 <TextBlock Text="Name" Margin="5,5,5,0"/>
-                <TextBox Text="{Binding Name}" Margin="5,0,5,5"/>
+                <TextBox Text="{Binding XPer.Name}" Margin="5,0,5,5"/>
                 <TextBlock Text="Address" Margin="5,5,5,0"/>
-                <TextBox Text="{Binding Address}" Margin="5,0,5,5"/>
+                <TextBox Text="{Binding XPer.Address}" Margin="5,0,5,5"/>
                 <TextBlock Text="Investment Amount (JPY)" Margin="5,5,5,0"/>
-                <TextBox Text="{Binding InvestmentAmount}" Margin="5,0,5,5"/>
+                <TextBox Text="{Binding XPer.InvestmentAmount}" Margin="5,0,5,5"/>
                 <TextBlock Text="Image" Margin="5,5,5,0"/>
                 <Button Command="{Binding ImageSelectCommand}" Margin="5,0,5,5">
                     <TextBlock Text="Select" Foreground="#222222"/>
