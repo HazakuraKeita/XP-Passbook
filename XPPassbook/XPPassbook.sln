@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPPassbook", "XPPassbook\XP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPPassbook.Models", "XPPassbook.Models\XPPassbook.Models.csproj", "{9BA3E83D-A352-4BFD-9598-1CBA2468AF79}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "XPPassbook.Installer", "XPPassbook.Installer\XPPassbook.Installer.vdproj", "{3A1C4621-4BA9-43E8-93BE-E9377DCEE56D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{9BA3E83D-A352-4BFD-9598-1CBA2468AF79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BA3E83D-A352-4BFD-9598-1CBA2468AF79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BA3E83D-A352-4BFD-9598-1CBA2468AF79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A1C4621-4BA9-43E8-93BE-E9377DCEE56D}.Debug|Any CPU.ActiveCfg = Debug
+		{3A1C4621-4BA9-43E8-93BE-E9377DCEE56D}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
