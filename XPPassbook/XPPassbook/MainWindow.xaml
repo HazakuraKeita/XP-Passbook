@@ -8,6 +8,7 @@
         WindowStyle="None"
         BorderThickness="0"
         Background="#555555"
+        WindowStartupLocation="CenterScreen"
         Title="XPPassbook" Height="500" Width="600">
     <Window.DataContext>
         <local:ViewModel/>
@@ -34,7 +35,23 @@
             </Button.Triggers>
         </Button>
         <TextBlock Text="XP Passbook" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
-        
+        <Grid Margin="10,50,10,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Background="#222222">
+                <Image Source="{Binding IconImage}" Width="200" Height="200"/>
+            </Border>
+            <StackPanel Grid.Column="1" Orientation="Vertical">
+                <TextBlock Text="{Binding Name}" Margin="10,5" Style="{StaticResource PropertyText}"/>
+                <TextBlock Text="{Binding Address}" TextWrapping="NoWrap" Margin="10,5" Style="{StaticResource PropertyText}"/>
+            </StackPanel>
+        </Grid>
         <!--*******************************************************
         *
         * Side menu
@@ -71,6 +88,9 @@
                 </Button>
                 <Button Command="{Binding SaveCommand}" Margin="5,30,5,5">
                     <TextBlock Text="Save" Foreground="#222222"/>
+                </Button>
+                <Button Command="{Binding UpdateCommand}" Margin="5">
+                    <TextBlock Text="Update" Foreground="#222222"/>
                 </Button>
                 <Button Command="{Binding ExitCommand}" Margin="5">
                     <TextBlock Text="Exit" Foreground="#222222"/>
