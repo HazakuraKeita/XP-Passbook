@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using XPPassbook.Models;
 
 namespace XPPassbook
@@ -41,13 +42,13 @@ namespace XPPassbook
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Address)));
             }
         }
-        public Uri ImageFullName
+        public BitmapImage IconImage
         {
-            get { return imageFullName; }
+            get { return iconImage; }
             set
             {
-                imageFullName = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ImageFullName)));
+                iconImage = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IconImage)));
             }
         }
         public ICommand ImageSelectCommand { get; private set; }
@@ -59,7 +60,26 @@ namespace XPPassbook
         int investmentAmount;
         string name;
         string address;
-        Uri imageFullName;
+        string ImageFullName
+        {
+            get { return imageFullName; }
+            set
+            {
+                imageFullName = value;
+
+                if (!string.IsNullOrEmpty(imageFullName))
+                {
+                    var image = new BitmapImage();
+                    image.CreateOptions = BitmapCreateOptions.None;
+                    image.BeginInit();
+                    image.UriSource = new Uri(imageFullName, UriKind.Absolute);
+                    image.EndInit();
+                    IconImage = image;
+                }
+            }
+        }
+        string imageFullName;
+        BitmapImage iconImage;
         SettingsXml xml;
 
         public ViewModel()
@@ -71,7 +91,7 @@ namespace XPPassbook
                 InvestmentAmount = xml.InvestmentAmount;
                 Name = xml.Name;
                 Address = xml.Address;
-                ImageFullName = string.IsNullOrEmpty(xml.ImageFullName) ? null : new Uri(xml.ImageFullName, UriKind.Absolute);
+                ImageFullName = xml.ImageFullName;
             }
 
             SaveCommand = new DelegateCommand(() =>
@@ -79,7 +99,7 @@ namespace XPPassbook
                 xml.InvestmentAmount = InvestmentAmount;
                 xml.Name = Name;
                 xml.Address = Address;
-                xml.ImageFullName = ImageFullName.AbsolutePath;
+                xml.ImageFullName = ImageFullName;
                 xml.Update();
 
                 Update();
@@ -100,7 +120,7 @@ namespace XPPassbook
                         }
                         var movedFileFullName = directory + Path.GetFileName(dialog.FileName);
                         File.Copy(dialog.FileName, movedFileFullName);
-                        ImageFullName = new Uri(movedFileFullName, UriKind.Absolute);
+                        ImageFullName = movedFileFullName;
                     }
                     catch { }
                 }
