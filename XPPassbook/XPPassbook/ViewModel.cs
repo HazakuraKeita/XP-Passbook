@@ -55,17 +55,10 @@ namespace XPPassbook
         string name;
         string address;
         string imageFullName;
-        string programDataFullName;
 
         public ViewModel()
         {
             ExitCommand = new DelegateCommand(() => Application.Current.MainWindow.Close() );
-
-            programDataFullName = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "XpJp/XP-Passbook/";
-            if (!Directory.Exists(programDataFullName))
-            {
-                Directory.CreateDirectory(programDataFullName);
-            }
         }
     }
 }

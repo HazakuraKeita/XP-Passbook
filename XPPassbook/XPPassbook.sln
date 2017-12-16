@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPPassbook", "XPPassbook\XPPassbook.csproj", "{15F51C2E-EF87-41AA-90EC-4B7691A2D469}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPPassbook.Models", "XPPassbook.Models\XPPassbook.Models.csproj", "{9BA3E83D-A352-4BFD-9598-1CBA2468AF79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{15F51C2E-EF87-41AA-90EC-4B7691A2D469}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15F51C2E-EF87-41AA-90EC-4B7691A2D469}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15F51C2E-EF87-41AA-90EC-4B7691A2D469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA3E83D-A352-4BFD-9598-1CBA2468AF79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA3E83D-A352-4BFD-9598-1CBA2468AF79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA3E83D-A352-4BFD-9598-1CBA2468AF79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA3E83D-A352-4BFD-9598-1CBA2468AF79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
