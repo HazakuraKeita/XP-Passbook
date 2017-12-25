@@ -1,4 +1,6 @@
-# XP-Passbook
+# XP-Passbook  
+## Attention  
+2017.12.25 Balance is not correct if you have sent XP. I'll fix the bug.  
 ## How to install
 Please get the installer from  
 https://github.com/HazakuraKeita/XP-Passbook/blob/master/XPPassbook/Installer/XP%20Passbook%20installer%20v1.0.0.zip
