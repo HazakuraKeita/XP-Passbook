@@ -92,7 +92,7 @@ namespace XPPassbook.Models
         {
             try
             {
-                using (var response = await (new HttpClient()).GetAsync("https://chainz.cryptoid.info/xp/api.dws?q=getreceivedbyaddress&a=" + Address))
+                using (var response = await (new HttpClient()).GetAsync("https://chainz.cryptoid.info/xp/api.dws?q=getbalance&a=" + Address))
                 {
                     var data = await response.Content.ReadAsStringAsync();
 
